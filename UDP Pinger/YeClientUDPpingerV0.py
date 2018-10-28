@@ -16,7 +16,6 @@ clientSocket = socket(AF_INET, SOCK_DGRAM)
 clientSocket.settimeout(2)
 
 counter = 0
-request = 200
 min = 0.0
 max = 0.0
 avg = 0.0
@@ -24,7 +23,7 @@ total = 0.0
 loss = 0
 requestTime = [250]   #array to store pings, so that standard deviation can be calculated later on
 
-while (counter<request):
+while (counter<10):
     message = "Ping: "
     startTime = datetime.now()
     try:
@@ -54,13 +53,14 @@ while (counter<request):
 
 
         
-avg = total/(request - loss)     # calculations
-lossPercent = loss/request*100
+avg = total/(10 - loss)     # calculations
+lossPercent = loss/10*100
 stddev = statistics.stdev(requestTime)
     
 print('Min RTT is: '+str(min))
 print('Max RTT is: '+str(max))
 print('Avg RTT is: '+str(avg))
+print("Packet loss rate is :"+str(lossPercent))
 print('Standard Deviation RTT is: '+str(stddev))
     
 

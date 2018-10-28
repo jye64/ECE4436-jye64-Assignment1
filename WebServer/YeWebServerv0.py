@@ -13,8 +13,8 @@ serverSocket = socket(AF_INET, SOCK_STREAM)   #SOCK_STREAM indicates a TCP conne
 #prepare a server socket
 
 #fill in start
-serverPort = 12000
-serverSocket.bind(('127.0.0.1',serverPort))
+serverPort = 6789
+serverSocket.bind(('127.0.0.1',6789))
 serverSocket.listen(1)
 
 #fill in end
